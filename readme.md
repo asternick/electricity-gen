@@ -39,7 +39,7 @@ Electricity rates are considered in total by state, which is provided by EIA, wh
 
 ### Visualizations
 
-Three different visualization types are available via functions in the code notebook, and numerous examples are featured in the [images folders](./images/). All visualizations can be created either with renewables expressed as one category, or 5 individual generation sources (hydro, solar, wind, biomass, geothermal): 
+Three different visualization types are available via functions in the code notebook, and numerous examples are featured in the [images folders](./images/). All visualizations can be created either with renewables expressed as one category, or 5 individual generation sources (hydroelectric, geothermal, biomass, solar, wind): 
 
 * [Bar plots](./images/Barplot/barplot-Idaho-2018.png) are useful for understanding one state's generation profile at a given point in time.
 * [Stackplots](./images/Stackplots/stackplot-example-CA.png) express both the generation mix and its change over the entire 29 year period of analysis. The stack order is meaningful. At the bottom, non-dispatchable generation sources (which pair poorly with intermittent renewables such as solar and wind) are displayed in dark colors (black and purple). In the middle in white to gray shades are dispatchable fossil fuels, still polluting, but which pair well with intermittent renewables. Renewables themselves are color coded intuitively in a water/earth/plant/sun/sky palette, corresponding to hydroelectric/geothermal/biomass/solar/wind. 
