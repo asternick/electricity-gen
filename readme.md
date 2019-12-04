@@ -21,11 +21,11 @@ Author: Andrew Sternick
 
 ## Problem Statement
 
-In a time of overt hostility to climate goals at the federal level, state regulation is critical to United States's capacity to confront the climate crisis. Electricity generation produces 28% of overall US greenhouse gas emissions and the need to transition to zero-emissions generation is manifest. Fortunately, energy generation is regulated at the state rather than federal level. Numerous states have established mandates for zero-emission energy generation, but there is resistance to such targets in some states, due in part to a perceived high cost of low emissions. In this project I will explore state electricity generation profiles over the period of 1990 - 2018, during which wind and solar power emerged from niche technologies to mainstream, cost-effective forms of electricity generation. I will use unsupervised clustering algorithms to gain insight into how geography, state policy, and the cost of fuels influence the states' journey toward a sustainable electricity grid, and how that journey has impacted retail electricity rates over time.
+In a time of overt hostility to climate goals at the federal level, state regulation is critical to United States's capacity to confront the climate crisis. Electricity generation produces 28% of overall US greenhouse gas emissions, and the need to transition to zero-emissions generation is manifest. Fortunately, energy generation is regulated at the state rather than federal level. Numerous states have established mandates for zero-emission energy generation, but there is resistance to such targets in some states, due in part to a perceived high cost of low emissions. In this project I will explore state electricity generation profiles over the period of 1990 - 2018, during which wind and solar power emerged from niche technologies to mainstream, cost-effective forms of electricity generation. I will use unsupervised clustering algorithms to gain insight into how geography, state policy, and the cost of fuels influence the states' journey toward a sustainable electricity grid, and how that journey has impacted retail electricity rates over time.
 
 ## Executive Summary
 
-Renewable generation in the US consists of hydroelectric, geothermal, biomass, solar, and wind. The Energy Information Administration provides annual reporting of how electricity consumed at the state level is generated (including Washington, DC), as well as average electricity rates data. I use this data to visualize each state's electricity generation and pricing profile over the entire 1990 - 2018 reporting period. Unsupervised clustering algorithms are used to gain insight into how state geography and policy have influenced generation profile. 
+Renewable generation in the US consists of hydroelectric, geothermal, biomass, solar, and wind. The Energy Information Administration provides annual reporting of how electricity consumed at the state level is generated (including Washington, DC), as well as average electricity rates data. I use this data to visualize each state's electricity generation and pricing profile over the entire 1990 - 2018 reporting period. K-Means and DCSCAN clustering algorithms are both considered as tools to gain insight into how state geography and policy have influenced generation profile. 
 
 ### Data Sources
 
@@ -59,7 +59,7 @@ K-Means clustering identifies seven clusters almost every year from 1990 to 2006
 * [Coal and Nuclear States (16)](./images/KMeans/km-1990-1-coal-nuke.png)
 * [Renewable States (4)](./images/KMeans/km-1990-2-ren.png)
 * [Mixed Generation States (4)](./images/KMeans/km-1990-3-mix.png)
-* [Natual Gas States (6)](./images/KMeans/km-1990-4-gas.png)
+* [Natual Gas States (6)](./images/KMeans/km-1990-4-gas-mix.png)
 * [Petroleum States (2)](./images/KMeans/km-1990-5-petroleum.png)
 * [Nuclear States (5)](./images/KMeans/km-1990-6-nuke.png)
 
@@ -68,8 +68,8 @@ By 2006, the clusters have changed somewhat:
 * [Coal States (12)](./images/KMeans/km-2006-1-coal.png)
 * [Coal and Nuclear States (15)](./images/KMeans/km-2006-0-coal-nuke.png)
 * [Renewable States (4)](./images/KMeans/km-2006-2-ren.png)
-* [Mixed Generation States (2)](./images/KMeans/km-2006-5-mix.png)
-* [Natual Gas States (11)](./images/KMeans/km-2006-3-gas.png)
+* [Mixed Generation States (2)](./images/KMeans/km-2006-5-coal-ren.png)
+* [Natual Gas States (11)](./images/KMeans/km-2006-3-gas-mix.png)
 * [Petroleum States (2)](./images/KMeans/km-2006-4-petroleum.png)
 * [Nuclear States (5)](./images/KMeans/km-2006-6-nuke.png)
 
@@ -85,7 +85,7 @@ Between 2006 an 2018, the cluster count declines to 5 and the content of the clu
 
 Of the 11 natural gas dominant states, 4 have have renewable generation over 20%. Of the 17 coal-dominant states, 7 have renewable generation in excess of 20%, with some near 50%. Washington DC, South Dakota, and Vermont have transitioned to join the original 4 renewable states, and all renewable states are at or over 70% renewable. Of the states with mixed generation, natural gas, coal, nuclear, and renewables are all well represented. Only one petroleum state remains, Hawaii.
 
-The association between renewables and electricity rates is unclear. Some states which saw a big increase in renewable generation also saw rate increases, such as [Kansas](./images/Stackrate/Stackrate-KS.png) and [South Dakota](./images/Stackrate/Stackrate-SD.png). Others saw a decrease in rates, notably [Texas](./images/Stackrate/Stackrate-TX-png). Others saw no signififcant change even in the face of a rapid and far-reaching transformation in generation profile, such as [Iowa](./images/Stackrate/Stackrate-IA.png) and [Vermont](./images/Stackrate/Stackrate-VT.png).
+The association between renewables and electricity rates is unclear. Some states which saw a big increase in renewable generation also saw rate increases, such as [Kansas](./images/Stackrate/Stackrate-KS.png) and [South Dakota](./images/Stackrate/Stackrate-SD.png). Others saw a decrease in rates, notably [Texas](./images/Stackrate/Stackrate-TX.png). Others saw no signififcant change even in the face of a rapid and far-reaching transformation in generation profile, such as [Iowa](./images/Stackrate/Stackrate-IA.png) and [Vermont](./images/Stackrate/Stackrate-VT.png).
 
 ## Conclusions
 
@@ -93,6 +93,10 @@ The electrical grid has been called the most complicated machine ever built. To 
 
 ## Limitations and Next Steps
 
-The model represents a simplification of the electricity generation landscape. Electricity is traded between states; some states import some or even all their generation (DC, for example) whereas many produce virtually all the electricity they consume. Energy storage, presently overwhelmingly pumped hydro, impacts the integration of intermittent renewables. Short-duration lithium-ion storage, while still small, is scaling at a pace that rivals wind and solar growth over the past decade, with aggressive policy support in many states. The presence, or non-presence, of a state renewable portfolio standard (RPS) is widely recognized as a primary driver of renewable investment. All of this data is available at the state level and could be added to the model. 
+The model represents a simplification of the electricity generation landscape. There are many features that could be added to the model which would allow deeper insights to be delivered by the clustering algorithms:
 
-This project is focused on clustering, but a predictive model for electricity rates is suggested by the trends which appear to be visible in the stackrate plots. However, machine learning algorithms typically require a significant quantity of training data to build useful models, and we have only 29 rows for each state. An ensemble model which aggregates all the states' profiles may be practical, and is a logical next step in the analysis.
+* Electricity is traded between states; some states import some or even all their generation (DC, for example) whereas many produce virtually all the electricity they consume. This may impact retail electricity rates. 
+* Energy storage, presently overwhelmingly pumped hydro, supports the integration of intermittent renewables. Short-duration lithium-ion storage, while still small, is scaling at a pace that rivals wind and solar growth over the past decade, with aggressive policy support in many states. 
+* The presence, or non-presence, of a state renewable portfolio standard (RPS) is widely recognized as a primary driver of renewable investment. 
+
+This project is focused on clustering, but a predictive model for electricity rates may be possible. However, machine learning algorithms typically require a significant quantity of training data to build useful models, and we have only 29 rows for each state. An ensemble model which aggregates all the states' profiles may be practical, and is a logical next step in the analysis.
