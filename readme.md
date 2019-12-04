@@ -9,11 +9,15 @@ Author: Andrew Sternick
 * [Executive Summary](##Executive-Summary)
 * [Analysis](##Analysis)
 * [Conclusions](##Conclusions)
-* [Limitations and Next Steps](#Limitations and Next Steps)
+* [Limitations and Next Steps](##Limitations-and-Next-Steps)
 
 ### Links
 * [Images](./images/)
 * [Presentation](./presentation.pdf)
+
+### Code
+* [EDA and Preprocessing](./code/eda-preprocessing.ipynb)
+* [Modeling](./code/modeling.ipynb)
 
 ## Problem Statement
 
@@ -87,7 +91,7 @@ The association between renewables and electricity rates is unclear. Some states
 
 The electrical grid has been called the most complicated machine ever built. To model it is far beyond the scope of this project. However the insights gained from the data presented are meaningful. Renewable generation deployment is driven partly by market forces and partly by policy, and there is an interaction between these forces. 
 
-Consider solar energy and its growth over the past decade. There are [eights states](./images/NREL/solar_ghi_2018_usa_scale_01) with exceptional solar potential in the US, six in the southwest, plus Florida and Hawaii. Yet only [California](./images/Stackplots/stackplot-solar-potential.png) can be said to have "taken off" where solar generation is considered. This is entirely due to California's early regulatory support for solar energy. Other states have put the requisite structures in place, such as Hawaii, and are poised for such a takeoff. In Texas the overall environment for renewables is excellent, but several more doublings of solar generation are necessary before the geometric growth seen in California is visible relative to other generation sources. Other states, such as Arizona and Nevada, have suffered from an inconsistent regulatory environment, where "poison pill" bills have been put into effect at the behest of fossil fuel funded lobbying groups, derailing solar's momentum. In Florida, yet another dynamic is at work, where rooftop solar is discouraged, but vast, centralized, inexpensive generation is poised to explode over the coming decade, with strong regulatory support. 
+Consider solar energy and its growth over the past decade. There are [eights states](./images/NREL/solar_ghi_2018_usa_scale_01) with exceptional solar potential in the US, six in the southwest, plus Florida and Hawaii. Yet only [California](./images/Stackplots/stackplot-solar-potential.png) can be said to have "taken off" where solar generation is considered. This is entirely due to California's early regulatory support for solar energy. Other states have since put the requisite structures in place, such as Hawaii, and are poised for such a takeoff. In Texas the overall environment for renewables is excellent, but several more doublings of solar generation are necessary before the geometric growth seen in California is visible relative to other generation sources. Other states, such as Arizona and Nevada, have suffered from an inconsistent regulatory environment, where "poison pill" bills have been put into effect at the behest of fossil fuel funded lobbying groups, derailing solar's momentum. In Florida, yet another dynamic is at work, where rooftop solar is discouraged, but vast, centralized, inexpensive generation is poised to explode over the coming decade, with strong regulatory support. 
  
 As an industry scales, costs decline, and renewables are no exception. The decline in cost of renewables has in fact been widely understood to be breathtaking over the past decade, such that they will soon out-complete all other forms of electricity generation in numeorus markets. This of course also depends on market structures and geography. Hawaii, which imports petroleum for most of its generation by boat, suffers from predictably high electricity rates, and renewables will almost certainly provide  cleaner air, zero emissions, and lower consumer costs. However there are states which consume locally-mined coal in generation facilities that are fully depreciated, where rates are low and renewables will require favorable regulatory environments to gain traction. Elsewhere, natural gas infrastructure investments have been made recently, and even continue to be made, which many industry analysts regard as likely to become stranded assets in the low-cost renewable world of the near future. 
 
@@ -96,7 +100,7 @@ As an industry scales, costs decline, and renewables are no exception. The decli
 The model represents a simplification of the electricity generation landscape. There are many features that could be added to the model which would allow deeper insights to be delivered by the clustering algorithms:
 
 * Electricity is traded between states; some states import some or even all their generation (DC, for example) whereas many produce virtually all the electricity they consume. This may impact retail electricity rates. 
-* Energy storage, presently overwhelmingly pumped hydro, supports the integration of intermittent renewables. Short-duration lithium-ion storage, while still small, is scaling at a pace that rivals wind and solar growth over the past decade, with aggressive policy support in many states, and is a recognized driver of solar integration in particular. 
+* Energy storage, presently overwhelmingly pumped hydro, supports the integration of intermittent renewables and can have a favorable impact on retail rates. Short-duration lithium-ion storage, while still small, is scaling at a pace that rivals wind and solar growth over the past decade, with aggressive policy support in many states, and is a recognized driver of solar integration in particular. 
 * The presence, or non-presence, of a state renewable portfolio standard (RPS) is widely recognized as a primary driver of renewable investment. 
 
 This project is focused on clustering, but a predictive model for electricity rates may be possible. However, machine learning algorithms typically require a significant quantity of training data to build useful models, and we have only 29 rows for each state. An ensemble model which aggregates all the states' profiles may be practical, and is a logical next step in the analysis.
