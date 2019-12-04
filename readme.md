@@ -7,10 +7,6 @@ Author: Andrew Sternick
 
 * [Problem Statement](##Problem-Statement)
 * [Executive Summary](##Executive-Summary)
-* [Data Sources](###Data Sources) 
-* [Data Cleaning and Preprocessing](###Data Cleaning and Preprocessing)
-* [Visualizations](###Visualizations)
-* [Clustering Algorithms](###Clustering Algorithms)
 * [Analysis](##Analysis)
 * [Conclusions](##Conclusions)
 * [Limitations and Next Steps](##Limitations and Next Steps)
