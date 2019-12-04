@@ -67,4 +67,12 @@ By 2006, the clusters have changed somewhat:
 
 Membership in clusters changes somewhat over the course of 1990 - 2016, but the overal breakdown is remarkably stable. Coal and nuclear remain dominant, and renewables are restricted to states with favorable geography in damnable rivers, mostly concentrated in the Pacific Northwest. 
 
-Between 2006 an 2018, the cluster count declines to 5 and the content of the clusters changes. This expresses the decline of coal, the rise of natural gas, the diversification of generation within states, the transition away from petroleum, and the rise of wind and solar. 
+Between 2006 an 2018, the cluster count declines to 5 and the content of the clusters changes. This expresses very closely the actual trends in electricity generation of this time period: the decline of coal, the rise of natural gas, the diversification of generation within states, the transition away from petroleum, and the rise of wind and solar. By 2018, K-Means identifies only 5 clusters:
+
+* [Natural Gas States (11)](./images/KMeans/km-2018-0-gas.png)
+* [Coal States (17)](./images/KMeans/km-2018-1-coal.png)
+* [Renewable States (7)](./images/KMeans/km-2018-2-ren.png)
+* [Mixed Generation States (15)](./images/KMeans/km-2018-3-mix.png)
+* [Petroleum State (1)](./images/KMeans/km-2018-4-petroleum.png)
+
+Of the 11 natural gas dominant states, 4 have have renewable generation over 20%. Of the 17 coal-dominant states, 7 have renewable generation in excess of 20%, with some near 50%. Washington DC, South Dakota, and Vermont have transitioned to join the original 4 renewable states, and all renewable states are at or over 70% renewable. Of the states with mixed generation, natural gas, coal, nuclear, and renewables are all well represented. Only one petroleum state remains, Hawaii.
