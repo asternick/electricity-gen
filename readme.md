@@ -1,5 +1,5 @@
 # US States Electricity Generation: 
-Renewable Transition and Retail Rates
+## Renewable Transition and Retail Rates
 ---
 Author: Andrew Sternick
 
