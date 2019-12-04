@@ -1,4 +1,4 @@
-# US States Power Generation: 
+# US States Electricity Generation: 
 Renewable Transition and Retail Rates
 ---
 Author: Andrew Sternick
@@ -9,7 +9,7 @@ Author: Andrew Sternick
 * [Executive Summary](##Executive-Summary)
 * [Analysis](##Analysis)
 * [Conclusions](##Conclusions)
-* [Limitations and Next Steps](##Limitations and Next Steps)
+* [Limitations and Next Steps](#Limitations and Next Steps)
 
 ### Links
 * [Images](./images/)
