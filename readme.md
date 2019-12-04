@@ -5,8 +5,8 @@ Author: Andrew Sternick
 
 ### Table of Contents 
 
-* [Problem Statement](#Problem-Statement)
-* [Executive Summary](#Executive-Summary)
+* [Problem Statement](##Problem-Statement)
+* [Executive Summary](##Executive-Summary)
 * [Data Sources](#Data Sources) 
 * [Data Cleaning and Preprocessing](#Data Cleaning and Preprocessing)
 * [Visualizations](#Visualizations)
@@ -27,17 +27,17 @@ In a time of overt hostility to climate goals at the federal level, state regula
 
 Renewable generation in the US consists of hydroelectric, geothermal, biomass, solar, and wind. The Energy Information Administration provides annual reporting of how electricity consumed at the state level is generated (including Washington, DC), as well as average electricity rates data. I use this data to visualize each state's electricity generation and pricing profile over the entire 1990 - 2018 reporting period. K-Means and DCSCAN clustering algorithms are both considered as tools to gain insight into how state geography and policy have influenced generation profile. 
 
-### Data Sources
+## Data Sources
 
 Detailed [state generation profile data](https://www.eia.gov/electricity/data/state/) used in this project is from the Energy Information Administration. [Solar](https://www.nrel.gov/gis/solar.html) and [wind](https://www.nrel.gov/gis/wind.html) resource data is from the National Renewable Energy Laboratory.
 
-### Data Cleaning and Preprocessing
+## Data Cleaning and Preprocessing
 
 EIA generation data is detailed with total MWh generated and numerous source categories. Rates data includes economic sectors as well as totals. For the purposes of this project, the data was condensed to relative generation by source, with each state's generation expressed as a fraction of 100%. One generation source I remove is pumped hydro, as it is a storage technology rather than pure generation, and energy storage is not considered in our modeling. 
 
 Electricity rates are considered in total by state, which is provided by EIA, whereas residential, industrial, commericial, and transportation rates are dropped. EIA rates data is not indexed for inflation. Therefore, I use Los Angeles Times Data and Graphics Department's [CPI](https://github.com/datadesk/cpi) python library to adjust rates data to 2005 dollars. 
 
-### Visualizations
+## Visualizations
 
 Three different visualization types are available via functions in the code notebook, and numerous examples are featured in the [images folders](./images/). All visualizations can be created either with renewables expressed as one category, or 5 individual generation sources (hydroelectric, geothermal, biomass, solar, wind): 
 
@@ -45,7 +45,7 @@ Three different visualization types are available via functions in the code note
 * [Stackplots](./images/Stackplots/stackplot-example-CA.png) express both the generation mix and its change over the entire 29 year period of analysis. The stack order is meaningful. At the bottom, non-dispatchable generation sources (which pair poorly with intermittent renewables such as solar and wind) are displayed in dark colors (black and purple). In the middle in white to gray shades are dispatchable fossil fuels, still polluting, but which pair well with intermittent renewables. Renewables themselves are color coded intuitively in a water/earth/plant/sun/sky palette, corresponding to hydroelectric/geothermal/biomass/solar/wind. 
 * [Stackrate](./images/Stackrate/Stackrate-IA.png) plots combine the features of the stackplot with an indicator of relative change in electricity rates over time. The straight horizontal line represents the average electricity retail rate for that state over the entire 29 year period. This is not a specific price but rather a representation of the average for that state. Keeping this a relative measure eliminates any confusion caused by inherent electricity price differences between states founded upon geography or past capitalized investments in infrastructure. The thicker, meandering line indicates the difference at any given time between the state's retail electricity price and the overall average for that state. 
 
-### Clustering Algorithms
+## Clustering Algorithms
 
 Both K-Means and DBSCAN are used to cluster the states by generation profile each year. This takes maximum advantage of the algorithms, allowing them to identify patterns over time. K-Means was instantiated for each year's data with 3 through 7 centroids, and the cluster count that produced the highest silhouette score was retained. Since each year was evaluated separately, cluster count changes, but nonetheless a pattern is [evident over time](./images/cluster-count-km.png). DBSCAN was also instantiated for each year, and 100 epsilons of 0.01 - 1.00 were evaluated. A minimum [cluster count](./images/cluster-count-dbscan.png) of 3 was required, excluding [outliers](./images/cluster-outliers-db.png). 
 
