@@ -96,7 +96,7 @@ The electrical grid has been called the most complicated machine ever built. To 
 The model represents a simplification of the electricity generation landscape. There are many features that could be added to the model which would allow deeper insights to be delivered by the clustering algorithms:
 
 * Electricity is traded between states; some states import some or even all their generation (DC, for example) whereas many produce virtually all the electricity they consume. This may impact retail electricity rates. 
-* Energy storage, presently overwhelmingly pumped hydro, supports the integration of intermittent renewables. Short-duration lithium-ion storage, while still small, is scaling at a pace that rivals wind and solar growth over the past decade, with aggressive policy support in many states. 
+* Energy storage, presently overwhelmingly pumped hydro, supports the integration of intermittent renewables. Short-duration lithium-ion storage, while still small, is scaling at a pace that rivals wind and solar growth over the past decade, with aggressive policy support in many states, and is a recognized driver of solar integration in particular. 
 * The presence, or non-presence, of a state renewable portfolio standard (RPS) is widely recognized as a primary driver of renewable investment. 
 
 This project is focused on clustering, but a predictive model for electricity rates may be possible. However, machine learning algorithms typically require a significant quantity of training data to build useful models, and we have only 29 rows for each state. An ensemble model which aggregates all the states' profiles may be practical, and is a logical next step in the analysis.
